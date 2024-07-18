@@ -22,7 +22,7 @@ var cursos = [
     new Curso("Desarrollo de Base de datos SQL Server", 20, true, new Date("2022-12-26"), Institucion.TEKPROVIDER),
     new Curso("Consultas SQL Server", 20, true, new Date("2022-10-27"), Institucion.TEKPROVIDER)
 ];
-export var ap = new Aprendiz("Ricardo", "Venancio Flores", "perfil.jpg", 39, NivelEducativo.UNIVERSITARIO, cursos);
+export var ap = new Aprendiz("Ricardo", "Venancio Flores", "perfil.jpg", 38, NivelEducativo.UNIVERSITARIO, cursos);
 var aprendizTable = document.getElementById("aprendiz");
 var estadisticasTable = document.getElementById("estadisticas");
 var cursosTable = document.getElementById("cursos");

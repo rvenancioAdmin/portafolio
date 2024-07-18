@@ -3,7 +3,7 @@ import { Curso,Institucion } from './curso.js';
 
 
 let cursos=[
-    new Curso("Diseño de páginas web con Bootstrap 4",3,true,new Date("2024-07-17"),Institucion.COURSERA),
+    new Curso("Diseño de páginas web con Bootstrap 4",4,true,new Date("2024-07-17"),Institucion.COURSERA),
     new Curso("Fundamentos de TypeScript",3,true,new Date("2024-07-17"),Institucion.COURSERA),
     new Curso("Fundamentos de la programación: Más allá de lo básico",3,true,new Date("2024-02-24"),Institucion.LINKEDIN),
     new Curso("Desarrollo de Base de datos SQL Server",20,true,new Date("2022-12-26"),Institucion.TEKPROVIDER),

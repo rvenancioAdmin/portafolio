@@ -25,7 +25,7 @@ let cursos=[
     new Curso("Consultas SQL Server",20,true,new Date("2022-10-27"),Institucion.TEKPROVIDER)
 ]
 
-export const ap= new Aprendiz("Ricardo","Venancio Flores","perfil.jpg",39,NivelEducativo.UNIVERSITARIO,cursos);
+export const ap= new Aprendiz("Ricardo","Venancio Flores","perfil.jpg",38,NivelEducativo.UNIVERSITARIO,cursos);
 
 let aprendizTable:HTMLElement=document.getElementById("aprendiz")!;
 let estadisticasTable:HTMLElement=document.getElementById("estadisticas")!;

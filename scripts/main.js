@@ -1,7 +1,10 @@
 import { Aprendiz, NivelEducativo } from './aprendiz.js';
 import { Curso, Institucion } from './curso.js';
 var cursos = [
-    new Curso("Curso de programación en SQL", 20, false, new Date("2022-10-02"), Institucion.TEKPROVIDER)
+    new Curso("Fundamentos de TypeScript", 3, true, new Date("2024-07-17"), Institucion.COURSERA),
+    new Curso("Fundamentos de la programación: Más allá de lo básico", 3, true, new Date("2024-02-24"), Institucion.LINKEDIN),
+    new Curso("Desarrollo de Base de datos SQL Server", 20, true, new Date("2022-12-26"), Institucion.TEKPROVIDER),
+    new Curso("Consultas SQL Server", 20, true, new Date("2022-10-27"), Institucion.TEKPROVIDER)
 ];
 export var ap = new Aprendiz("Ricardo", "Venancio Flores", "perfil.jpg", 39, NivelEducativo.UNIVERSITARIO, cursos);
 var aprendizTable = document.getElementById("aprendiz");
@@ -32,13 +35,15 @@ function mostrarDatosEstadisicas(aprendiz) {
     trElement.innerHTML = "<td>Cursos Certificados: </td><td>".concat(numeroCertificados, "</td>");
     estadisticasTable.appendChild(trElement);
 }
+;
 function mostrarDatosCursosAprendiz(cursos) {
     var tbodyCursos = document.createElement("tbody");
     for (var _i = 0, cursos_1 = cursos; _i < cursos_1.length; _i++) {
         var curso = cursos_1[_i];
         var trElement = document.createElement("tr");
-        trElement.innerHTML = "\n            <td>".concat(curso.nombre, "</td>\n            <td>").concat(curso.horas, "</td\n            <td>").concat(curso.institucion, "</td>\n            <td>").concat(curso.certificado, "</td>\n            <td>").concat(curso.Fecha, "</td>");
+        trElement.innerHTML = "\n            <td>".concat(curso.nombre, "</td>\n            <td>").concat(curso.horas, "</td>\n            <td>").concat(curso.institucion, "</td>\n            <td>").concat(curso.certificado ? 'si' : 'no', "</td>\n            <td>").concat(curso.Fecha.toDateString(), "</td>");
         tbodyCursos.appendChild(trElement);
     }
     cursosTable.appendChild(tbodyCursos);
 }
+;

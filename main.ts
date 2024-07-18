@@ -3,7 +3,12 @@ import { Curso,Institucion } from './curso.js';
 
 
 let cursos=[
-    new Curso("Curso de programación en SQL",20,false,new Date("2022-10-02"),Institucion.TEKPROVIDER)]
+    new Curso("Diseño de páginas web con Bootstrap 4",3,true,new Date("2024-07-17"),Institucion.COURSERA),
+    new Curso("Fundamentos de TypeScript",3,true,new Date("2024-07-17"),Institucion.COURSERA),
+    new Curso("Fundamentos de la programación: Más allá de lo básico",3,true,new Date("2024-02-24"),Institucion.LINKEDIN),
+    new Curso("Desarrollo de Base de datos SQL Server",20,true,new Date("2022-12-26"),Institucion.TEKPROVIDER),
+    new Curso("Consultas SQL Server",20,true,new Date("2022-10-27"),Institucion.TEKPROVIDER)
+]
 
 export const ap= new Aprendiz("Ricardo","Venancio Flores","perfil.jpg",39,NivelEducativo.UNIVERSITARIO,cursos);
 
@@ -43,11 +48,12 @@ function mostrarDatosEstadisicas(aprendiz:Aprendiz):void{
     let trElement:HTMLElement=document.createElement("tr");
     trElement.innerHTML=`<td>Cursos Certificados: </td><td>${numeroCertificados}</td>`    
     estadisticasTable.appendChild(trElement);
-}
+};
 
 
 function mostrarDatosCursosAprendiz(cursos:Curso[]):void{
     let tbodyCursos = document.createElement("tbody");
+    
     for(let curso of cursos)
         {
             let trElement:HTMLElement=document.createElement("tr");
@@ -55,9 +61,9 @@ function mostrarDatosCursosAprendiz(cursos:Curso[]):void{
             <td>${curso.nombre}</td>
             <td>${curso.horas}</td>
             <td>${curso.institucion}</td>
-            <td>${curso.certificado}</td>
-            <td>${curso.Fecha}</td>`
+            <td>${curso.certificado?'si':'no'}</td>
+            <td>${curso.Fecha.toDateString()}</td>`
             tbodyCursos.appendChild(trElement);
         }
         cursosTable.appendChild(tbodyCursos);
-}
+};

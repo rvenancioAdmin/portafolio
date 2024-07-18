@@ -10,10 +10,22 @@ export const ap= new Aprendiz("Ricardo","Venancio Flores","perfil.jpg",39,NivelE
 let aprendizTable:HTMLElement=document.getElementById("aprendiz")!;
 let estadisticasTable:HTMLElement=document.getElementById("estadisticas")!;
 let cursosTable:HTMLElement=document.getElementById("cursos")!;
+let btnFiltro:HTMLElement=document.getElementById("boton-filtro")!;
+let textoBusqueda:HTMLInputElement=<HTMLInputElement>document.getElementById("texto-busqueda")!;
+
+btnFiltro.onclick=filtrarPorNombre;
 
 mostrarDatosAprendiz(ap);
 mostrarDatosEstadisicas(ap);
-mostrarDatosCursosAprendiz(ap);
+mostrarDatosCursosAprendiz(ap.cursos);
+
+function filtrarPorNombre():void{
+    let text:string=textoBusqueda.value;
+    text=(text==null)?"":text;
+    cursosTable.getElementsByTagName("tbody")[0].remove();
+    let cursosFiltrados:Curso[]=ap.cursos.filter(function(c){return c.nombre.match(text);})
+    mostrarDatosCursosAprendiz(cursosFiltrados);
+}
 
 function mostrarDatosAprendiz(aprendiz:Aprendiz):void{
     let tbodyAprendiz = document.createElement("tbody");
@@ -34,14 +46,14 @@ function mostrarDatosEstadisicas(aprendiz:Aprendiz):void{
 }
 
 
-function mostrarDatosCursosAprendiz(aprendiz:Aprendiz):void{
+function mostrarDatosCursosAprendiz(cursos:Curso[]):void{
     let tbodyCursos = document.createElement("tbody");
-    for(let curso of aprendiz.cursos)
+    for(let curso of cursos)
         {
             let trElement:HTMLElement=document.createElement("tr");
             trElement.innerHTML=`
             <td>${curso.nombre}</td>
-            <td>${curso.horas}</td
+            <td>${curso.horas}</td>
             <td>${curso.institucion}</td>
             <td>${curso.certificado}</td>
             <td>${curso.Fecha}</td>`
